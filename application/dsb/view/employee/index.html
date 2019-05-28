@@ -1,0 +1,94 @@
+{include file="common/home_header"/}   
+    <div class="container shebao-detail staff-container mt50">
+      <div class="detail-info">
+        <p>员工人数: {$employee_count['total']}人  在职: {$employee_count['in']}人  离职: {$employee_count['out']}人</p>
+      </div>
+       <form class="form-horizontal" role="form">
+        <div class="staff-hd">
+          <div class="staff-select">
+            <label for="">员工状态：</label>
+            <select name="" id="changeState" class="form-control selectpicker">
+              <option {if condition="$status == 0"}selected="selected"{/if} value="0">全部</option>
+              <option {if condition="$status == 1"}selected="selected"{/if} value="1">在职</option>
+              <option {if condition="$status == 2"}selected="selected"{/if} value="2">离职</option>
+            </select>
+          </div>
+          <div class="table-search">
+            <span id="search"></span>
+            <input type="text" class="form-control" placeholder="输入姓名、身份证、手机号、邮箱进行搜索" value="{$search}" />
+          </div>
+          <span  id="addStaff">
+            添加员工
+          </span>
+        </div>
+        <div class="staff-cont">
+          <table class="table">
+            <tbody>
+               <tr>
+                 <td>行号</td>
+                 <td>姓名</td>
+                 <td>身份证</td>
+                 <td>手机号</td>
+                 <td>邮箱</td>
+                 <td>状态</td>
+                 <td>操作</td>
+               </tr>
+              {foreach name='employee_list' item='employee'}
+               <tr <?php if ($user['status'] == 2) echo "class=gray3-color";?>>
+                 <td><?php echo (input('page', 1) - 1) * 20 + $key + 1;?></td>
+                 <td>{$employee.real_name}</td>
+                 <td>{$employee.idcard}</td>
+                 <td>{$employee.mobile}</td>
+                 <td>{$employee.email}</td>
+                 <td>{if condition="$employee['status']==1"}在职{else}离职{/if}</td>
+                 <td class="amend-info">
+                    <span>...</span>
+                    <div>
+                      <span class="warn editStatus" data-id="{$employee.id}" data-status="{$employee.status}">{if condition="$employee['status']==1"}离职{else}在职{/if}</span>
+                      <span class="warn editStaff">修改</span>
+                    </div>
+                 </td>
+              {/foreach}
+               </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="staff-page">
+          {$employee_list->render()}
+        </div>
+      </form>
+    </div>
+    <div class="loading_line" id="staffPopup">
+      <div class="box-middle">
+        <div class="staff-popup change-tel f14">
+           <i id="hidePopup"></i>
+          <h3>添加员工</h3>
+          <p>
+            <strong>*</strong>
+            姓&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名：<input id="name" type="text" class="form-control" placeholder="请输入姓名">
+            <em>123456</em>
+          </p>
+          <p>
+             <strong>*</strong>
+             身份证号：<input id="idcard" type="text" class="form-control" placeholder="请输入身份证号">
+          </p>
+          <p>
+             <strong>&nbsp</strong>
+             手&nbsp&nbsp机&nbsp&nbsp号：<input id="telphone" type="tel" class="form-control" placeholder="请输入手机号">
+          </p>
+          <p>
+             <strong>&nbsp</strong>
+             邮&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp箱：<input id="email" type="text" class="form-control" placeholder="请输入邮箱">
+          </p>
+          <button type="button" id="infoSubmit" data-isStatus="1" data-id="" data-status="">确定</button>
+          <!-- <button type="button" id="infoSubmit">确定</button> -->
+        </div>
+      </div>
+    </div>
+    <script src="/static/bootstrap/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/static/bootstrap/scripts/bootstrap.min.js"></script>
+    <script src="/static/bootstrap/scripts/bootstrap-select.js"></script>
+    <script src="/static/bootstrap/scripts/global.js"></script>
+    <script src="/static/bootstrap/scripts/employee.js"></script>
+  </body>
+</html>

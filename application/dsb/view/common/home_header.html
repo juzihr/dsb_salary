@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>桔子工资条 -- 简单好用的工资条 Sass</title>
+    <link rel="icon" href="/static/bootstrap/images/favicon.ico" />
+    <link href="/static/bootstrap/styles/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/bootstrap/styles/bootstrap-select.css" rel="stylesheet">
+    <link href="/static/bootstrap/styles/main.css" rel="stylesheet">
+    <link href="/static/bootstrap/styles/base/city-picker.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+    // (function(a,h,c,b,f,g){a["UdeskApiObject"]=f;a[f]=a[f]||function(){(a[f].d=a[f].d||[]).push(arguments)};g=h.createElement(c);g.async=1;g.charset="utf-8";g.src=b;c=h.getElementsByTagName(c)[0];c.parentNode.insertBefore(g,c)})(window,document,"script","http://assets-cli.udesk.cn/im_client/js/udeskApi.js","ud");
+    // ud({
+    //     "code": "gdkji51",
+    //     "link": "http://dashebao.udesk.cn/im_client/?web_plugin_id=45452"
+    // });
+    </script>
+  </head>
+  <body>
+    <div class="headnav">
+       <div class="container">
+         <div class="headnav-l">
+           <i></i><span>桔子工资条</span>
+         </div>
+         <ul>
+           <li {if condition="$nav=='home'"}class="act"{/if}><a href="/dsb/home/index.html">首页</a></li>
+           <li {if condition="$nav=='employee'"}class="act"{/if}><a href="/dsb/employee/index.html">员工</a></li>
+           <li {if condition="$nav=='salary'"}class="act"{/if}><a href="/dsb/salary/history.html">薪酬</a></li>
+         </ul>
+         <div class="headnav-r">
+           {$company['company_name']}
+           <i></i>
+         </div>
+         <div class="company-info">
+           <span><a href="/dsb/user/logout.html">退出登录</a></span>
+         </div>
+       </div>
+    </div> 

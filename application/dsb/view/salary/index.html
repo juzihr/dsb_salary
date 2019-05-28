@@ -1,0 +1,53 @@
+{include file="common/home_header"/}
+   <div class="container info-cont">
+      <ul id="myTab" class="nav nav-tabs">
+         <li class="active">1、导入数据</li>
+         <li>2、核对数据</li>
+         <li>3、预览并发送</li>
+      </ul>
+      <div id="myTabContent" class="tab-content">
+               <div class="tab-pane fade in active" id="home">
+                   <div class="step-1">
+                     <div class="step-tip">
+                       <h3 class="red-color">使用说明：</h3>
+                       <p class="red-color">1、手机和邮箱用于通知员工，所以请务必确保数据正确无误；</p>
+                       <p class="red-color">2、表头必填项：“姓名、身份证、实发工资”；</p>
+                       <p class="red-color">3、仅支持含1个sheet的工资表；</p>
+                       <p class="red-color">4、表格中有日期列，需要设置为“短日期”格式；</p>
+                     </div>
+                     <form class="form-signin" method="POST" action="/dsb/salary/index.html" enctype="multipart/form-data">
+                       <div>
+                         <label for="">发薪月份：</label>
+                         <select  id="month" class="form-control selectpicker" data-val="">
+                         </select>
+                         <input type="hidden" name="month" value="" id="monthVal" />
+                        <!--  <input type="text"  class="form-control" placeholder="请输入月份" required /> -->
+                       </div>
+                       <div>
+                         <label for="">发薪批次：</label>
+                         <input type="text" value="1" name="batch" class="form-control" placeholder="请输入批次" required />
+                         <input type="text" class="hide">
+                       </div>
+                        <p class="step2-btn tc">
+                          <label for="importSalary">导入工资表
+                          <input type="file" name="excel" id="importSalary" accept=".xls,.xlsx">
+                          </label>
+                        </p>
+                     </form>
+                   </div>
+                   <div class="step-1-r">
+                     <img src="/static/bootstrap/images/demo.png" alt="">
+                   </div>
+               </div> 
+      </div>
+    </div>
+    <script src="/static/bootstrap/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/static/bootstrap/scripts/global.js"></script>
+    <script src="/static/bootstrap/scripts/step_1.js"></script>
+    <script src="/static/bootstrap/scripts/bootstrap.min.js"></script>
+    <script src="/static/bootstrap/scripts/bootstrap-select.js"></script>
+    <script type="text/javascript">
+        {if condition="$error_msg"}popup({txt:'{$error_msg}'});{/if}
+    </script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+{include file="common/home_header"/}   
+    <div class="container mt50">
+      <div class="salary-tip">
+        <span><i></i>系统对所有薪酬数据均做了加密处理，采用银行级加密算法，即便数据库管理员也无法查看到原始数据。
+        </span>
+      </div>
+      <div class="list-hd">
+        <span><a href="/dsb/salary/index.html" class="white-color">发工资条</a>
+        </span>
+        <div class="list-search">
+          <label for="">切换年月：</label>
+          <select name="" id="month" class="form-control selectpicker">
+          <option value="0" <?php if ($month == 0) echo 'selected';?>>全部</option>
+          {foreach name='month_list' item='v'}  
+              <option value="{$v}" <?php if ($v == $month) echo 'selected';?>>{$v}</option>
+          {/foreach} 
+          </select>
+        </div>
+        </div>
+      <div class="staff-cont">
+        <table class="table">
+          <tbody>
+             <tr class="staff-num">
+               <td>月份</td>
+               <td>批次</td>
+               <td>批次人数</td>
+               <td>实发工资总计（元）</td>
+               <td>个税总计（元）</td>
+               <td>发送人</td>
+               <td>发送方式</td>
+               <td>发送日期</td>
+               <td>操作</td>
+             </tr>
+             {foreach name='history_list' item='history'} 
+                <tr>
+                    <td>{$history.month}</td>
+                    <td>{$history.batch}</td>
+                    <td>{$history.num}</td>
+                    <td>{$history.salary}</td>
+                    <td>{$history.tax}</td>
+                    <td>{$history.mobile}</td>
+                    <td><?php echo [0=>'不发送', 1=>'短信', 2=>'邮件', 3=>'短信+邮件'][$history['type']];?></td>
+                    <td><?php echo date('Y-m-d H:i:s', $history['created_at']);?></td>
+                    <td><a href="/dsb/salary/detail/month/{$history.month}/batch/{$history.batch}.html" class="blu-color">查看明细</a></td>
+                </tr>
+            {/foreach} 
+        </tbody>
+        </table>
+      </div>
+      <div class="staff-page">
+         {$history_list->render()}
+      </div>
+    </div>
+    <script src="/static/bootstrap/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/static/bootstrap/scripts/bootstrap.min.js"></script>
+    <script src="/static/bootstrap/scripts/bootstrap-select.js"></script>
+    <script src="/static/bootstrap/scripts/global.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- <script src="/Public/salary_enterprise/scripts/bootstrap.min.js"></script> -->
+    <script type="text/javascript">
+      $(function(){
+        var error_msg=$("#error").val();
+        if (ifNotNull(error_msg)) {
+            popup({txt:error_msg});
+        }
+
+        $("#month").change(function(){
+          var month=$(this).find("option:selected").val();
+          if(!month==""){
+            window.location.href="/dsb/salary/history/month/"+month+".html";
+          }else{
+            window.location.href="/dsb/salary/history.html";
+          }
+        });
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>桔子工资条 -- 简单好用的工资条 Sass</title>
+    <link href="/static/bootstrap/styles/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/bootstrap/styles/main.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="register">
+        <div class="header-info"><i></i><h3>桔子工资条</h3><span>--简单好用的工资条 Sass--</span></div>
+        <div class="register-form">
+          <ul>
+            <li>
+              <span>01</span>
+              注册账号
+            </li>
+            <i></i>
+            <li class="active">
+              <span>02</span>
+              公司基本信息
+            </li>
+          </ul>
+          <div>
+            <form class="form-signin register-company" id="form" action="" type="post">
+              <div>
+                   <label for=""><i class="red-color">*</i>公司名称：</label>
+                   <input type="text"  class="form-control" placeholder="请输入公司名称" required  id="company_name" name="company_name">
+              </div>
+              <p><span id="tip-1">* 请输入公司名称</span></p>
+              <div>
+                   <label for=""><i class="red-color">*</i>公司地址：</label>
+                   <input type="text"  class="form-control" placeholder="请输入公司地址" required id="address" name="address">
+              </div>
+              <p><span id="tip-2">* 请输入正公司地址</span></p>
+              <div>
+                   <label for=""><i class="red-color">*</i>联系人：</label>
+                   <input type="text"  class="form-control" placeholder="请输入联系人" required id="contact" name="contact">
+              </div>
+              <p><span id="tip-3">* 请输入联系人</span></p>
+              <div>
+                   <label for=""><i class="red-color">*</i>联系邮箱：</label>
+                   <input type="text"  class="form-control" placeholder="请输入企业邮箱" required id="email" name="email">
+              </div>
+              <p><span id="tip-4">* 请输入正确的邮箱</span></p>
+
+              <div class="register-licence">
+                <label for="" class="v-top"><i class="red-color">*</i>营业执照：</label>
+                <div class="register-upload">
+                  <div class="to-update">
+                    <input type="file" value="" id="license"  name="license"  accept="image/*"/>
+                    <img src="/static/bootstrap/images/zhizhao3.png" id="ImgPr" alt="">
+                  </div>
+                  
+                  <p>图片格式为 JPG/JPEG/PNG/PDF 大小在2MB内</p>
+                </div>
+              </div>
+              <div class="register-btn">
+                <span class="btn"  id="goback">上一步</span>
+                <span class="btn"  id="register">确 定</span>
+              </div>
+
+              <!-- <input type="text"  class="form-control" placeholder="请填写联系人姓名" required autofocus id="real_name" name="real_name">
+              <p><span id="tip-1">* 请输入正确的联系人姓名</span></p>
+              <input type="text"  class="form-control" placeholder="请填写联系人手机号" required autofocus id="telphone"  name="telphone">
+              <p><span id="tip-2">* 请输入正确的手机号</span></p>
+              <input type="text"  class="form-control" placeholder="请填写联系人邮箱" required autofocus id="email"  name="email">
+              <p><span id="tip-3">* 请输入正确的邮箱</span></p>
+              <input type="text"  class="form-control" placeholder="请填写公司全称" required autofocus id="name"  name="name">
+              <p><span id="tip-4">* 请输入正确公司全称</span></p>
+              <input type="text"  class="form-control" placeholder="请填写公司所在地址" required autofocus id="address"  name="address">
+              <p><span id="tip-5">* 请输入正确公司地址</span></p>
+              <div class="register-upload">
+                <div class="to-update">
+                  <input type="file" value="" id="license"  name="license"  accept="image/*"/>
+                  <img src="/static/bootstrap/images/zhizhao3.png" id="ImgPr" alt="">
+                </div>
+                
+                <p>图片格式为 JPG/JPEG/PNG/PDF 大小在2MB内</p>
+              </div>
+              <span class="btn btn-lg btn-green btn-block"  id="register">注册</span> -->
+            </form>
+          </div>
+        </div>
+    </div> 
+    <script src="/static/bootstrap/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/static/bootstrap/scripts/global.js"></script>
+    <script src="/static/bootstrap/scripts/registerStep2.js"></script>
+  </body>
+</html>

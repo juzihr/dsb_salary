@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>桔子工资条 -- 简单好用的工资条 Sass</title>
+    <link href="/static/bootstrap/styles/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/bootstrap/styles/main.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="register">
+        <div class="header-info"><i></i><h3>桔子工资条</h3><span>--简单好用的工资条 Sass--</span></div>
+        <div class="register-form">
+          <ul>
+            <li>
+              <span>01</span>
+              验证手机号
+            </li>
+            <i></i>
+            <li class="active">
+              <span>02</span>
+              重置密码
+            </li>
+          </ul>
+          <div>
+            <form class="form-signin">
+                   <input type="password"  class="form-control" placeholder="请输入新登录密码" name="password" id="password" required>
+                   <p><span id="tip-3">* 只能输入6-20个字母、数字、下划线 </span></p>
+                   <input type="password"  class="form-control" placeholder="确认新登录密码" name="repeat" id="repeat" required>
+                   <p><span id="tip-4">* 只能输入6-20个字母、数字、下划线 </span></p>
+                
+
+                   <span class="btn btn-lg btn-green btn-block"  id="login">确认</span>
+                   <div>
+                     <div class="register-login">
+                       <strong onclick="javascript:window.location.href='/dsb/user/login.html'">返回登录</strong>
+                     </div>
+                   </div>
+                   
+            </form>
+          </div>
+        </div>
+     
+
+    </div> 
+
+
+
+    <script src="/static/bootstrap/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/static/bootstrap/scripts/global.js"></script>
+    <script src="/static/bootstrap/scripts/gt.js"></script>
+    <script src="/static/bootstrap/scripts/reset.js"></script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>橘子HR—简单好用的HR Sass</title>
+    <link href="/static/bootstrap/styles/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/bootstrap/styles/main.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="register">
+        <div class="header-info"><i></i><h3>桔子工资条</h3><span>--简单好用的工资条 Sass--</span></div>
+        <div class="register-form">
+          <ul>
+            <li class="active">
+              <span>01</span>
+              注册账号
+            </li>
+            <i></i>
+            <li>
+              <span>02</span>
+              公司基本信息
+            </li>
+            <!-- <i></i>
+            <li>
+              <span>03</span>
+              公司基本信息
+            </li> -->
+          </ul>
+          <div>
+            <form class="form-signin" action="" method="POST">
+              <input type="tel" name="username" id="tel" class="form-control" placeholder="请输入手机号" required autofocus>
+              <p><span id="tip-1">* 请输入正确的手机号码</span></p>
+
+
+              <div class="form-signin-yan">
+                <input type="text" id="yzm" name="vertifyCode" class="form-control" placeholder="请输入验证码">
+                <button id="get_yzm" type="button" class="btn-blue">获取验证码</button>
+              </div> 
+              <p><span id="tip-2">* 请输入正确的验证码</span></p>
+
+              <input type="password"  id="password1" class="form-control" placeholder="请设置登录密码">
+              <p><span id="tip-3">* 只能输入6-20个字母、数字、下划线 </span></p>
+              <input type="password"  id="password2" class="form-control" placeholder="请确认登录密码">
+              <p><span id="tip-4">* 只能输入6-20个字母、数字、下划线</span></p>
+              <span class="btn btn-lg btn-green btn-block"  id="login">下一步</span>
+              <div>
+                <!-- <div class="register-yzm">
+                  <span>收不到验证码？<strong>试试语音验证</strong></span>
+                </div> -->
+                <div class="register-login" onclick="javascript:window.location.href='/dsb/index/index.html'">
+                  已有账号？<strong class="red-hover">返回登录</strong>
+                </div>
+              </div>
+              
+            </form>
+          </div>
+        </div>
+     
+
+    </div> 
+
+
+    <script src="/static/bootstrap/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/static/bootstrap/scripts/global.js"></script>
+    <script src="/static/bootstrap/scripts/gt.js"></script>
+    <script src="/static/bootstrap/scripts/registerStep1.js"></script>
+  </body>
+</html>

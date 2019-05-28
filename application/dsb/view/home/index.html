@@ -1,0 +1,42 @@
+{include file="common/home_header"/} 
+    <div class="container">
+      <div class="salary-cont">
+        <h3>
+            <?php $h = date('G');?>
+            {if condition="$h < 11"}早上好！{elseif condition="$h < 13"}中午好！{elseif condition="$h < 17"}下午好！{else}晚上好！{/if} 
+        </h3>
+        <p id="mathTime">时间和注意力是你最宝贵的财富！</p>
+        <div class="salary-info">
+        <p>本月 ({$begin_time} ~ {$end_time}) : 员工人数 {$employee_count} 人</p>
+        </div>
+        <div class="salary-list">
+          <div class="line-w"><em></em><h3>常用操作</h3></div>
+          <ul>
+            <li onclick="window.location.href='/dsb/employee/index'">
+              <img src="/static/bootstrap/images/icon_3.png" alt=""/>
+              <span>员工管理</span>
+            </li>
+            <li onclick="window.location.href='/dsb/salary/index.html'">
+              <img src="/static/bootstrap/images/icon_1.png" alt=""/>
+              <span>发工资条</span>
+            </li>
+            <li onclick="window.location.href='/dsb/salary/history.html'">
+              <img src="/static/bootstrap/images/icon_2.png" alt=""/>
+              <span>工资发放记录</span>
+            </li>
+      </div>
+    </div>
+    <div class="zhanwei"></div>
+    <div class="footer">
+      <p>Powered By 大社保网 2019 </p>
+      <p>社保公积金咨询热线：400-900-2825 按2 转企业业务</p>
+    </div>
+    <!-- <div class="customer">
+      <img src="/Public/salary_enterprise/images/kefu.png" alt=""/>
+      <span>在线客服</span>
+    </div> -->
+    <script src="/static/bootstrap/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/static/bootstrap/scripts/global.js"></script>
+    <script src="/static/bootstrap/scripts/index.js"></script>
+  </body>
+</html>

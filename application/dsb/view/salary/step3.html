@@ -1,0 +1,106 @@
+{include file="common/home_header"/}
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/styles/datagrid.css">
+    <style>
+       .panel-body {
+            padding: 0; 
+       }
+       .panel {
+            margin-bottom: 0;
+        }
+        .datagrid-header, .datagrid-td-rownumber{
+            background: #fbfbfc;
+        }
+    </style>
+    <script src="/static/bootstrap/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/static/bootstrap/scripts/global.js"></script>
+    <script type="text/javascript">showLoading();</script>
+    <div class="container info-cont">
+      <ul id="myTab" class="nav nav-tabs">
+         <li>1、导入数据</li>
+         <li>2、核对数据</li>
+         <li class="active">3、预览并发送</li>
+      </ul>
+      <div id="myTabContent" class="tab-content">
+          <div class="tab-pane fade in active" id="jmeter">
+            <form method="POST" action="/dsb/salary/step3.html">
+            <div>
+                <div class="step-notice-hd">
+                  <label for="">通知内容：</label>
+                  <input type="text" class="form-control" name="content" value="亲，这是您<?php echo substr($month, 0, 4);?>年<?php echo substr($month, 4);?>月的工资条，请查收~"/>
+                  <input type="text" class="hide">
+                </div>
+                <div class="step-notice-type">
+                  <span>发送方式：</span>
+                  <div>
+                    <div>
+                     <span>发送通知</span><i class="active" id="sendNotify"></i>
+                    </div>
+                    <div class="send-type">
+                      <span><i><input name="type" type="radio" value="1"/></i><strong>仅短信</strong></span>
+                      <span><i><input name="type" type="radio" value="2"/></i><strong>仅邮件</strong></span>
+                      <span><i><input name="type" type="radio" value="3"/></i><strong>短信+邮件</strong></span>
+                    </div>
+                    <input type="hidden" name="type" value="0" id="isSendNotify" />
+                  </div>
+                </div>
+                <div class="step2-btn">
+                     <button class="btn" type="button" id="goback">上一步</button>
+                     <button class="btn  btn-green" type="button" id="productSalary">发送工资条</button>
+                </div>
+            </div>
+             <div class="step-3">
+               <div class="table-hd-l">
+                <span><?php echo substr($month, 0, 4);?>年<?php echo substr($month, 4);?>月工资条（{$batch}批次）</span>
+               </div>
+               <div class="table-hd">
+                  <span>员工人数：<strong class="blu-color"><?php echo count($salary_list[3]);?></strong>人</span>
+                  <span>实发工资总计：<strong class="red-color">{$salary}</strong>元</span>
+                  <span>个税总计：<strong class="red-color">{$tax}</strong>元</span>
+               </div>
+               <div class="">
+                 <table class="table table-2 tc" id="dataGrid">
+                   
+                 </table>
+               </div>
+            </div>
+            </form>
+          </div>
+      </div>
+    </div>
+<!--     <script src="/static/bootstrap/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/static/bootstrap/scripts/global.js"></script> -->
+    <script src="/static/bootstrap/scripts/step_3.js"></script>
+    <script src="/static/bootstrap/scripts/theme/jquery.easyui.min.js"></script>
+    <script type="text/javascript">
+       {if condition="$error_msg"}popup({txt:'{$error_msg}'});{/if}
+       $(function(){
+        var frozenAll=[],columnsAll=[],rows1;
+        var data=<?php echo json_encode($salary_list);?>;
+        frozenAll.push(data[0]);
+        if(data[1].length){
+          columnsAll.push(data[1]);
+        }
+        columnsAll.push(data[2]);
+        rows1=data[3];
+        var total=rows1.length;
+        $('#dataGrid').datagrid({
+             width:  '930',
+             height: "500",
+             nowrap: true,//设置为 true，则把数据显示在一行里。设置为 true 可提高加载性能。
+             striped: false,//设置为 true，则把行条纹化。（即奇偶行使用不同背景色）
+             border: true,
+             method: 'get',
+             frozenColumns:frozenAll,
+             columns: columnsAll,
+             onBeforeLoad:function(){
+
+             },
+             onLoadSuccess: function (data) { 
+               closeLoading()       
+             }
+         }).datagrid('loadData', { total: total, rows: rows1});
+       })
+
+    </script>
+  </body>
+</html>
