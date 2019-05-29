@@ -6,9 +6,15 @@
 https://www.juzihr.com/
 
 
-![Image text](https://raw.githubusercontent.com/hongmaju/light7Local/master/img/productShow/20170518152848.png)
+![Image text](http://img.dashebao.com/1.png)
 
-![Image text](https://raw.githubusercontent.com/hongmaju/light7Local/master/img/productShow/20170518152848.png)
+![Image text](http://img.dashebao.com/2.png)
 
+![Image text](http://img.dashebao.com/3.png)
+
+
+商业授权或者合作随时联系我们：
+Email:contact@dashebao.com
+Phone:13811306497
 
 
